@@ -67,3 +67,52 @@ The node's UI dynamically updates:
 
 ## 💡 Pro Tip
 When using **Qwen Image Edit** workflows, always use the **Plus** node with `scaling_strategy` set to **Pad**. This ensures the model sees your entire original image within its optimal "vision window," preventing the loss of important details at the edges.
+
+---
+
+## 🔌 Wiring Guide (How to Connect)
+
+### 1. QwenCanvas (Basic Mode)
+
+Best for **Text-to-Image** generation where you need a specific Qwen-optimized empty frame.
+
+* **LATENT Output**  Connect to **KSampler** (samples input).
+* **width/height Output**  Connect to any resolution-aware nodes or use as a reference for conditioning.
+
+---
+
+### 2. QwenCanvasPlus (Advanced/Img2Img Mode)
+
+Best for **Image Editing** or **Inpainting** workflows where you have a reference image.
+
+#### Scenario A: The Calibration Workflow (Recommended)
+
+Use this when you want to "force" your input image into a Qwen-standard training bucket.
+
+1. **pixels Input**: Connect your **Load Image** node here.
+2. **vae Input**: Connect your **VAE** (from your Checkpoint Loader).
+3. **vae_encode**: Set to **"Enabled"**.
+4. **LATENT Output**: Connect to **KSampler**'s `latent_image`.
+5. **PREVIEW_IMAGE Output**: Use this for a **Preview Image** node to see how the node cropped/padded your original photo.
+
+#### Scenario B: The "Smart Latent" Workflow
+
+Use this when you don't need to encode the image yet, but want the Latent space to match your input's aspect ratio.
+
+1. **pixels Input**: Connect your **Load Image** node.
+2. **aspect_ratio**: Set to **"Original (Follow Input)"**.
+3. **vae_encode**: Set to **"Disabled"**.
+
+* *The node will now output an empty latent that perfectly matches the aspect ratio of your input image (downscaled to ~1M pixels).*
+
+---
+
+## 💡 Important Logic Notes
+
+* **1K Resolution Limit**: The "Plus" node automatically applies a 1-Megapixel limit (approx.  total area) to follow Qwen's vision encoder constraints, while ensuring dimensions are multiples of 8 for VAE compatibility.
+* **Visual Feedback**:
+* **Dashed Box**: Represents the target aspect ratio you selected.
+* **Solid Image**: Appears inside the node only when `vae_encode` is "Enabled" and an image is processed.
+
+
+* **Execution Signal**: The Plus node is marked as an `OUTPUT_NODE`, meaning it will update the UI even if its outputs aren't connected to a "Save Image" node.
