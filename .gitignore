@@ -1,0 +1,14 @@
+# 排除 Python 编译缓存（最重要，每个项目都有）
+__pycache__/
+*.pyc
+
+# 排除 macOS 系统文件
+.DS_Store
+
+# 排除本地测试可能产生的临时图片（如果你在本地运行生成了图）
+/temp/
+qwen_p_*.png
+
+# 排除 IDE 配置文件（如 VS Code 或 PyCharm）
+.vscode/
+.idea/
