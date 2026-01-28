@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/icon.png" alt="Node Preview">
+</p>
+
 # ComfyUI-Qwen-Canvas
 
 A precision canvas and latent generator designed specifically for **Qwen Image Edit** workflows. It ensures your inputs perfectly align with the high-performance training buckets used by Alibaba's Qwen team.
