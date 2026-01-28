@@ -2,6 +2,15 @@
   <img src="images/icon.png" alt="Node Preview" width="300">
 </p>
 
+<p align="center">
+  <img src="images/01.png" width="45%" alt="16:9 Baseline">
+  <img src="images/02.png" width="45%" alt="4:3 Baseline">
+  <img src="images/04.png" width="45%" alt="1:1 Baseline">
+  <img src="images/06.png" width="45%" alt="9:16 Baseline">
+  <br>
+  <em>Qwen Official Qwen Training Aspect Ratio Buckets (16:9 vs 4:3 vs 1:1 vs 9:16)</em>
+</p>
+
 # ComfyUI-Qwen-Canvas
 
 A precision canvas and latent generator designed specifically for **Qwen Image Edit** workflows. It ensures your inputs perfectly align with the high-performance training buckets used by Alibaba's Qwen team.
