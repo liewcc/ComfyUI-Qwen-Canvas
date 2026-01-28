@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/icon.png" alt="Node Preview">
+  <img src="images/icon.png" alt="Node Preview" width="300">
 </p>
 
 # ComfyUI-Qwen-Canvas
