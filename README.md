@@ -6,7 +6,7 @@
   <img src="images/01.png" width="45%" alt="16:9 Baseline">
   <img src="images/02.png" width="45%" alt="4:3 Baseline">
   <img src="images/04.png" width="45%" alt="1:1 Baseline">
-  <img src="images/06.png" width="45%" alt="9:16 Baseline">
+  <img src="images/08.png" width="45%" alt="follow input">
   <br>
   <em>Qwen Official Qwen Training Aspect Ratio Buckets (16:9 vs 4:3 vs 1:1 vs 9:16)</em>
 </p>
